@@ -161,9 +161,11 @@
 				TargetAttributes = {
 					58A696D420EE8C5100AD776F = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 					};
 					58A696E920EE8C5100AD776F = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 58A696D420EE8C5100AD776F;
 					};
 				};
@@ -341,6 +343,7 @@
 				INFOPLIST_FILE = Greenbike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -351,6 +354,7 @@
 				INFOPLIST_FILE = Greenbike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -369,6 +373,7 @@
 				INFOPLIST_FILE = GreenbikeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Greenbike.app/Greenbike";
 			};
 			name = Debug;
@@ -384,6 +389,7 @@
 				INFOPLIST_FILE = GreenbikeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Greenbike.app/Greenbike";
 			};
 			name = Release;
@@ -407,6 +413,7 @@
 				58A696F620EE8C5100AD776F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58A696F720EE8C5100AD776F /* Build configuration list for PBXNativeTarget "GreenbikeTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +422,7 @@
 				58A696F920EE8C5100AD776F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
