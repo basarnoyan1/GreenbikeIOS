@@ -13,6 +13,7 @@
 		58A696E220EE8C5100AD776F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A696E120EE8C5100AD776F /* Images.xcassets */; };
 		58A696E520EE8C5100AD776F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58A696E320EE8C5100AD776F /* LaunchScreen.xib */; };
 		58A696F120EE8C5100AD776F /* GreenbikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A696F020EE8C5100AD776F /* GreenbikeTests.swift */; };
+		58F8BEBA20FD13CD008F0C7F /* gbike.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F8BEB920FD13CD008F0C7F /* gbike.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		58A696EA20EE8C5100AD776F /* GreenbikeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenbikeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A696EF20EE8C5100AD776F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58A696F020EE8C5100AD776F /* GreenbikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenbikeTests.swift; sourceTree = "<group>"; };
+		58F8BEB920FD13CD008F0C7F /* gbike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gbike.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		58A696D720EE8C5100AD776F /* Greenbike */ = {
 			isa = PBXGroup;
 			children = (
+				58F8BEB920FD13CD008F0C7F /* gbike.png */,
 				58A696DA20EE8C5100AD776F /* AppDelegate.swift */,
 				58A696DC20EE8C5100AD776F /* ViewController.swift */,
 				58A696DE20EE8C5100AD776F /* Main.storyboard */,
@@ -196,6 +199,7 @@
 			files = (
 				58A696E020EE8C5100AD776F /* Main.storyboard in Resources */,
 				58A696E520EE8C5100AD776F /* LaunchScreen.xib in Resources */,
+				58F8BEBA20FD13CD008F0C7F /* gbike.png in Resources */,
 				58A696E220EE8C5100AD776F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
