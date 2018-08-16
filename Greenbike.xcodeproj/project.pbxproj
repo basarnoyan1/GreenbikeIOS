@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1E13777621217CE4004B1A4A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13777521217CE4004B1A4A /* DesignableView.swift */; };
-		1E5A2277212438D80052EAC8 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5A2276212438D80052EAC8 /* CoreBluetooth.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		1E5A2279212447640052EAC8 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A2278212447640052EAC8 /* History.storyboard */; };
 		1E5A227D212447DA0052EAC8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */; };
 		1E5A227F212448020052EAC8 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A227E212448020052EAC8 /* RankViewController.swift */; };
-		1E5A22812124480F0052EAC8 /* Rank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A22802124480F0052EAC8 /* Rank.storyboard */; };
-		1E5A2283212448280052EAC8 /* Bike.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A2282212448280052EAC8 /* Bike.storyboard */; };
 		1E5A22852124483A0052EAC8 /* BikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A22842124483A0052EAC8 /* BikeViewController.swift */; };
 		1E92E6C5212464F0006FE2EA /* hot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92E6C3212464EF006FE2EA /* hot.png */; };
 		1E92E6C6212464F0006FE2EA /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92E6C4212464F0006FE2EA /* history.png */; };
+		1E92E6CD212471C3006FE2EA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5A2276212438D80052EAC8 /* CoreBluetooth.framework */; };
 		58A696DB20EE8C5100AD776F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A696DA20EE8C5100AD776F /* AppDelegate.swift */; };
 		58A696DD20EE8C5100AD776F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A696DC20EE8C5100AD776F /* ViewController.swift */; };
 		58A696E020EE8C5100AD776F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A696DE20EE8C5100AD776F /* Main.storyboard */; };
@@ -39,11 +36,8 @@
 /* Begin PBXFileReference section */
 		1E13777521217CE4004B1A4A /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		1E5A2276212438D80052EAC8 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		1E5A2278212447640052EAC8 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		1E5A227E212448020052EAC8 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
-		1E5A22802124480F0052EAC8 /* Rank.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rank.storyboard; sourceTree = "<group>"; };
-		1E5A2282212448280052EAC8 /* Bike.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bike.storyboard; sourceTree = "<group>"; };
 		1E5A22842124483A0052EAC8 /* BikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeViewController.swift; sourceTree = "<group>"; };
 		1E92E6C3212464EF006FE2EA /* hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hot.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/hot.png"; sourceTree = "<group>"; };
 		1E92E6C4212464F0006FE2EA /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = history.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/history.png"; sourceTree = "<group>"; };
@@ -65,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E5A2277212438D80052EAC8 /* CoreBluetooth.framework in Frameworks */,
+				1E92E6CD212471C3006FE2EA /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,11 +121,8 @@
 				1E5A227B2124478B0052EAC8 /* Design */,
 				58A696DE20EE8C5100AD776F /* Main.storyboard */,
 				58A696DC20EE8C5100AD776F /* ViewController.swift */,
-				1E5A2278212447640052EAC8 /* History.storyboard */,
 				1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */,
-				1E5A22802124480F0052EAC8 /* Rank.storyboard */,
 				1E5A227E212448020052EAC8 /* RankViewController.swift */,
-				1E5A2282212448280052EAC8 /* Bike.storyboard */,
 				1E5A22842124483A0052EAC8 /* BikeViewController.swift */,
 			);
 			path = Greenbike;
@@ -245,14 +236,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E5A22812124480F0052EAC8 /* Rank.storyboard in Resources */,
 				1E92E6C6212464F0006FE2EA /* history.png in Resources */,
 				58A696E020EE8C5100AD776F /* Main.storyboard in Resources */,
 				58A696E520EE8C5100AD776F /* LaunchScreen.xib in Resources */,
 				58F8BEBA20FD13CD008F0C7F /* gbike.png in Resources */,
-				1E5A2279212447640052EAC8 /* History.storyboard in Resources */,
 				1E92E6C5212464F0006FE2EA /* hot.png in Resources */,
-				1E5A2283212448280052EAC8 /* Bike.storyboard in Resources */,
 				58A696E220EE8C5100AD776F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

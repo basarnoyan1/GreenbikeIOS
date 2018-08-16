@@ -1,48 +1,50 @@
 import CoreBluetooth
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController{
+    var centralManager: CBCentralManager?
+    var peripherals = Array<CBPeripheral>()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
+    }
+}
 
-    let sections = ["Fruit", "Vegetables"]
-    let fruit = ["Apple", "Orange", "Mango"]
-    let vegetables = ["Carrot", "Broccoli", "Cucumber"]
-    
-    override func viewDidLoad() {super.viewDidLoad()}
-    override func didReceiveMemoryWarning() {super.didReceiveMemoryWarning()}
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-            case 0:
-                return fruit.count
-            case 1:
-                return vegetables.count
-            default:
-                return 0
+extension ViewController: CBCentralManagerDelegate {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if (central.state == .poweredOn){
+            self.centralManager?.scanForPeripherals(withServices: nil, options: nil)
+        }
+        else {
+            // do something like alert the user that ble is not on
         }
     }
     
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        peripherals.append(peripheral)
+        tableView.reloadData()
+    }
+}
+
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        switch indexPath.section {
-            case 0:
-                cell.textLabel?.text = fruit[indexPath.row]
-                break
-            case 1:
-                cell.textLabel?.text = vegetables[indexPath.row]
-                break
-            default:
-                break
+        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        
+        let peripheral = peripherals[indexPath.row]
+        if peripheral.name!.hasPrefix("GREENBIKE"){
+            cell.textLabel?.text = peripheral.name
         }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return peripherals.count
+    }
 
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("a")
+    }
 }
