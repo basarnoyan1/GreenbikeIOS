@@ -9,6 +9,8 @@ class ViewController: UIViewController{
     private var selectedPeripheral: CBPeripheral?
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var rankBtn: UIButton!
+    @IBOutlet weak var histBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,14 @@ class ViewController: UIViewController{
         if let destinationViewController = segue.destination as? BikeViewController{
             destinationViewController.setup(with: centralManager!, peripheral: selectedPeripheral!)
         }
+    }
+    
+    @IBAction func rankOnClick(_ sender: UIButton) {
+         performSegue(withIdentifier: "MaintoRanklist", sender: self)
+    }
+    
+    @IBAction func histOnClick(_ sender: UIButton) {
+         performSegue(withIdentifier: "MaintoHistory", sender: self)
     }
 }
 
@@ -35,6 +45,26 @@ extension ViewController: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         peripherals.append(peripheral)
         tableView.reloadData()
+    }
+}
+
+extension ViewController: CBPeripheralDelegate {
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+            var errorMessage = "Could not connect"
+            if let selectedPeripheralName = self.selectedPeripheral?.name {
+                errorMessage += " \(selectedPeripheralName)"
+            }
+            
+            if let error = error {
+                print("Error connecting peripheral: \(error.localizedDescription)")
+                errorMessage += "\n \(error.localizedDescription)"
+            }
+    }
+    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+            print("Peripheral connected")
+            performSegue(withIdentifier: "startCycle", sender: self)
+            peripheral.discoverServices(nil)
     }
 }
 
@@ -56,7 +86,5 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedPeripheral = peripherals[indexPath.row]
         centralManager?.connect(peripherals[indexPath.row], options: nil)
-        print(peripherals[indexPath.row].state == .connected)
-        performSegue(withIdentifier: "startCycle", sender: self)
     }
 }

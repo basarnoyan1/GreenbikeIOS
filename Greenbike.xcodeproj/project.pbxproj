@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E13777621217CE4004B1A4A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13777521217CE4004B1A4A /* DesignableView.swift */; };
+		1E14780E2125FF8E00ADDD71 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E14780D2125FF8E00ADDD71 /* save.png */; };
 		1E5A227D212447DA0052EAC8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */; };
 		1E5A227F212448020052EAC8 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A227E212448020052EAC8 /* RankViewController.swift */; };
 		1E5A22852124483A0052EAC8 /* BikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A22842124483A0052EAC8 /* BikeViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		1E13777521217CE4004B1A4A /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		1E14780D2125FF8E00ADDD71 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/save.png"; sourceTree = "<group>"; };
 		1E5A2276212438D80052EAC8 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		1E5A227E212448020052EAC8 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		1E5A227B2124478B0052EAC8 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				1E14780D2125FF8E00ADDD71 /* save.png */,
 				1E92E6C4212464F0006FE2EA /* history.png */,
 				1E92E6C3212464EF006FE2EA /* hot.png */,
 				1E13777521217CE4004B1A4A /* DesignableView.swift */,
@@ -241,6 +244,7 @@
 				58A696E520EE8C5100AD776F /* LaunchScreen.xib in Resources */,
 				58F8BEBA20FD13CD008F0C7F /* gbike.png in Resources */,
 				1E92E6C5212464F0006FE2EA /* hot.png in Resources */,
+				1E14780E2125FF8E00ADDD71 /* save.png in Resources */,
 				58A696E220EE8C5100AD776F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
