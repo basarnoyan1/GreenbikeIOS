@@ -120,11 +120,39 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="rbO-XQ-XAN" id="RaN-Do-2Zw"/>
+                        <segue destination="xyE-8h-lKS" kind="show" identifier="startCycle" id="6Yc-q0-o8K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+        </scene>
+        <!--Bike View Controller-->
+        <scene sceneID="efr-Q8-HjF">
+            <objects>
+                <viewController id="xyE-8h-lKS" userLabel="Bike View Controller" customClass="BikeViewController" customModule="Greenbike" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qbu-T7-TFN"/>
+                        <viewControllerLayoutGuide type="bottom" id="R48-0u-7MX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ExW-Dg-6jj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello, World!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJD-kR-8aD">
+                                <rect key="frame" x="46" y="150" width="137" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxm-qo-eEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="124"/>
         </scene>
     </scenes>
     <resources>

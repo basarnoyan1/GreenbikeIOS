@@ -4,12 +4,21 @@ import UIKit
 class ViewController: UIViewController{
     var centralManager: CBCentralManager?
     var peripherals = Array<CBPeripheral>()
+    private var viewReloadTimer: Timer?
+    
+    private var selectedPeripheral: CBPeripheral?
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? BikeViewController{
+            destinationViewController.setup(with: centralManager!, peripheral: selectedPeripheral!)
+        }
     }
 }
 
@@ -45,6 +54,9 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("a")
+        selectedPeripheral = peripherals[indexPath.row]
+        centralManager?.connect(peripherals[indexPath.row], options: nil)
+        print(peripherals[indexPath.row].state == .connected)
+        performSegue(withIdentifier: "startCycle", sender: self)
     }
 }
