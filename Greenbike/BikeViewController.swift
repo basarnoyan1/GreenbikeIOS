@@ -7,7 +7,9 @@ class BikeViewController: UIViewController{
     var centralManager: CBCentralManager!
     
     var timer = Timer()
-    var counter = 0
+    var lat_tim:Int = 0
+    var lat_spd:Double = 0
+    var counter:Int = 0
     var first = true
     var cyc = 0
     
@@ -64,48 +66,57 @@ class BikeViewController: UIViewController{
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-    func tick(){
+    @objc private func tick(){
         counter += 1
-        var (h,m,s) = secondsToHoursMinutesSeconds(seconds: counter/1000)
+        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: counter/1000)
         time.text = String(format: "%02d",h) + ":" + String(format: "%02d",m) + ":" + String(format: "%02d",s)
-        energy.text = getCal(gender: "Erkek", he: 180, we: 70, ag: 35, spe: 40, time: counter/1000)
+        if counter - lat_tim > 1500 {
+            lat_spd = Double(3600) * Double(0.66 * Float.pi) / Double(counter - lat_tim)
+            speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
+        }
+        energy.text = getCal(gender: "Erkek", he: 180, we: 70, ag: 35, spe: lat_spd, time: counter/1000)
     }
-    func getCal(gender:String, he:Int,we:Int,ag:Int,spe:Float,time:Int) -> String{
-        var bmr = 0
-        var mets = 0
+    
+    func getCal(gender:String, he:Int,we:Int,ag:Int,spe:Double,time:Int) -> String{
+        var bmr = Double(0.00)
+        var mets = Double(0.00)
+            let n_we = Double(10*we)
+            let n_he = 6.25 * Double(he)
+            let n_ag = Double(5 * ag)
         if (gender == "Erkek") {
-            bmr = 10 * we + 6.25 * he - 5 * ag + 5
+            bmr = n_we + n_he - n_ag + Double(5)
         } else {
-            bmr = 10 * we + 6.25 * he - 5 * ag - 161
+            bmr = n_we + n_he - n_ag - Double(161)
         }
         
         if (spe < 0) {
             mets = 1
         } else if (spe < 5) {
-            mets = 3.8 - (5 - spe) * 2 / 9
+            mets = Double(3.8 - (5 - spe) * 2 / 9)
         } else if (spe < 10) {
-            mets = 4.8 - (10 - spe) * 2 / 10
+            mets = Double(4.8 - (10 - spe) * 2 / 10)
         } else if (spe < 15) {
-            mets = 5.9 - (15 - spe) * 2 / 11
+            mets = Double(5.9 - (15 - spe) * 2 / 11)
         } else if (spe < 20) {
-            mets = 7.1 - (20 - spe) * 2 / 12
+            mets = Double(7.1 - (20 - spe) * 2 / 12)
         } else if (spe < 25) {
-            mets = 8.4 - (25 - spe) * 2 / 13
+            mets = Double(8.4 - (25 - spe) * 2 / 13)
         } else if (spe < 30) {
-            mets = 9.8 - (30 - spe) * 2 / 14
+            mets = Double(9.8 - (30 - spe) * 2 / 14)
         } else if (spe < 35) {
-            mets = 11.3 - (35 - spe) * 2 / 15
+            mets = Double(11.3 - (35 - spe) * 2 / 15)
         } else if (spe < 40) {
-            mets = 12.9 - (40 - spe) * 2 / 16
+            mets = Double(12.9 - (40 - spe) * 2 / 16)
         } else if (spe < 45) {
-            mets = 14.6 - (45 - spe) * 2 / 17
+            mets = Double(14.6 - (45 - spe) * 2 / 17)
         } else if (spe < 50) {
-            mets = 16.4 - (50 - spe) * 2 / 18
+            mets = Double(16.4 - (50 - spe) * 2 / 18)
         } else {
             mets = 18.3
         }
-        
-        return String(format:"%01d",time/3600*bmr*mets*24) + " cal"
+        let test = Decimal(time)/Decimal(360)*Decimal(bmr)*Decimal(mets)/Decimal(240)
+        let res = String(format:"%.1f",Float(test.description)!) + " cal"
+        return res
     }
 }
 
@@ -146,7 +157,6 @@ extension BikeViewController: CBPeripheralDelegate {
             (rxData as NSData).getBytes(&rxByteArray, length: numberOfBytes)
             if let string = String(bytes: rxByteArray, encoding: .utf8) {
                 
-                
                 print(string)
                 if string.hasPrefix("#b4z8"){
                     if first{
@@ -156,6 +166,15 @@ extension BikeViewController: CBPeripheralDelegate {
                     cyc += 1
                     tour.text = String(cyc) + " tur"
                     dist.text = String(format: "%.3f", (Float(cyc) * 0.66 * Float.pi / 1000)) + " km"
+                    if counter - lat_tim != 0 {
+                        lat_spd = Double(3600) * Double(0.66 * Float.pi) / Double(counter - lat_tim)
+                        speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
+                    }
+                        let trstr = Decimal(counter) * Decimal(6.25) / Decimal(100000000)
+                    tree.text = String(format:"%.2f",Float(trstr.description)!) +  " ağaç"
+                        let enstr = Decimal(counter) * Decimal(0.125) / Decimal(1000)
+                    cdio.text = String(format:"%.2f",Float(enstr.description)!) + " g CO2"
+                    lat_tim = counter
                 }
                 
                 

@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		1E13777621217CE4004B1A4A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13777521217CE4004B1A4A /* DesignableView.swift */; };
 		1E14780E2125FF8E00ADDD71 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E14780D2125FF8E00ADDD71 /* save.png */; };
+		1E56E64521273A4900DE7FC1 /* time_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E63E21273A4800DE7FC1 /* time_icon.png */; };
+		1E56E64621273A4900DE7FC1 /* speed_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E63F21273A4900DE7FC1 /* speed_icon.png */; };
+		1E56E64721273A4900DE7FC1 /* co2_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E64021273A4900DE7FC1 /* co2_icon.png */; };
+		1E56E64821273A4900DE7FC1 /* energy_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E64121273A4900DE7FC1 /* energy_icon.png */; };
+		1E56E64921273A4900DE7FC1 /* forest_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E64221273A4900DE7FC1 /* forest_icon.png */; };
+		1E56E64A21273A4900DE7FC1 /* map_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E64321273A4900DE7FC1 /* map_icon.png */; };
+		1E56E64B21273A4900DE7FC1 /* loop_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E64421273A4900DE7FC1 /* loop_icon.png */; };
+		1E5947A72129DD5F006420EF /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E5947A62129DD5F006420EF /* back.png */; };
 		1E5A227D212447DA0052EAC8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */; };
 		1E5A227F212448020052EAC8 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A227E212448020052EAC8 /* RankViewController.swift */; };
 		1E5A22852124483A0052EAC8 /* BikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A22842124483A0052EAC8 /* BikeViewController.swift */; };
@@ -37,6 +45,14 @@
 /* Begin PBXFileReference section */
 		1E13777521217CE4004B1A4A /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		1E14780D2125FF8E00ADDD71 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/save.png"; sourceTree = "<group>"; };
+		1E56E63E21273A4800DE7FC1 /* time_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/time_icon.png"; sourceTree = "<group>"; };
+		1E56E63F21273A4900DE7FC1 /* speed_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speed_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/speed_icon.png"; sourceTree = "<group>"; };
+		1E56E64021273A4900DE7FC1 /* co2_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = co2_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/co2_icon.png"; sourceTree = "<group>"; };
+		1E56E64121273A4900DE7FC1 /* energy_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = energy_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/energy_icon.png"; sourceTree = "<group>"; };
+		1E56E64221273A4900DE7FC1 /* forest_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forest_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/forest_icon.png"; sourceTree = "<group>"; };
+		1E56E64321273A4900DE7FC1 /* map_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/map_icon.png"; sourceTree = "<group>"; };
+		1E56E64421273A4900DE7FC1 /* loop_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loop_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/loop_icon.png"; sourceTree = "<group>"; };
+		1E5947A62129DD5F006420EF /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/back.png"; sourceTree = "<group>"; };
 		1E5A2276212438D80052EAC8 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		1E5A227E212448020052EAC8 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +102,14 @@
 		1E5A227B2124478B0052EAC8 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				1E5947A62129DD5F006420EF /* back.png */,
+				1E56E64021273A4900DE7FC1 /* co2_icon.png */,
+				1E56E64121273A4900DE7FC1 /* energy_icon.png */,
+				1E56E64221273A4900DE7FC1 /* forest_icon.png */,
+				1E56E64421273A4900DE7FC1 /* loop_icon.png */,
+				1E56E64321273A4900DE7FC1 /* map_icon.png */,
+				1E56E63F21273A4900DE7FC1 /* speed_icon.png */,
+				1E56E63E21273A4800DE7FC1 /* time_icon.png */,
 				1E14780D2125FF8E00ADDD71 /* save.png */,
 				1E92E6C4212464F0006FE2EA /* history.png */,
 				1E92E6C3212464EF006FE2EA /* hot.png */,
@@ -240,12 +264,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E92E6C6212464F0006FE2EA /* history.png in Resources */,
+				1E56E64921273A4900DE7FC1 /* forest_icon.png in Resources */,
+				1E56E64B21273A4900DE7FC1 /* loop_icon.png in Resources */,
+				1E56E64A21273A4900DE7FC1 /* map_icon.png in Resources */,
 				58A696E020EE8C5100AD776F /* Main.storyboard in Resources */,
 				58A696E520EE8C5100AD776F /* LaunchScreen.xib in Resources */,
+				1E56E64821273A4900DE7FC1 /* energy_icon.png in Resources */,
 				58F8BEBA20FD13CD008F0C7F /* gbike.png in Resources */,
+				1E56E64621273A4900DE7FC1 /* speed_icon.png in Resources */,
 				1E92E6C5212464F0006FE2EA /* hot.png in Resources */,
 				1E14780E2125FF8E00ADDD71 /* save.png in Resources */,
+				1E5947A72129DD5F006420EF /* back.png in Resources */,
 				58A696E220EE8C5100AD776F /* Images.xcassets in Resources */,
+				1E56E64521273A4900DE7FC1 /* time_icon.png in Resources */,
+				1E56E64721273A4900DE7FC1 /* co2_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
