@@ -1,7 +1,7 @@
 import CoreBluetooth
 import UIKit
 
-class RankViewController: UIViewController{
+class RankViewController: UIViewController {
     @IBOutlet weak var back: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()

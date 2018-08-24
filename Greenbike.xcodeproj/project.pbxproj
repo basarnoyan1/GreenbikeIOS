@@ -23,6 +23,7 @@
 		1E92E6C5212464F0006FE2EA /* hot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92E6C3212464EF006FE2EA /* hot.png */; };
 		1E92E6C6212464F0006FE2EA /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92E6C4212464F0006FE2EA /* history.png */; };
 		1E92E6CD212471C3006FE2EA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5A2276212438D80052EAC8 /* CoreBluetooth.framework */; };
+		1E9625BD2129F5AE00A8BDC6 /* RankViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9625BC2129F5AE00A8BDC6 /* RankViewCell.swift */; };
 		58A696DB20EE8C5100AD776F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A696DA20EE8C5100AD776F /* AppDelegate.swift */; };
 		58A696DD20EE8C5100AD776F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A696DC20EE8C5100AD776F /* ViewController.swift */; };
 		58A696E020EE8C5100AD776F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A696DE20EE8C5100AD776F /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		1E5A22842124483A0052EAC8 /* BikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeViewController.swift; sourceTree = "<group>"; };
 		1E92E6C3212464EF006FE2EA /* hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hot.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/hot.png"; sourceTree = "<group>"; };
 		1E92E6C4212464F0006FE2EA /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = history.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/history.png"; sourceTree = "<group>"; };
+		1E9625BC2129F5AE00A8BDC6 /* RankViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewCell.swift; sourceTree = "<group>"; };
 		58A696D520EE8C5100AD776F /* Greenbike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenbike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A696D920EE8C5100AD776F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58A696DA20EE8C5100AD776F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				58A696DE20EE8C5100AD776F /* Main.storyboard */,
 				58A696DC20EE8C5100AD776F /* ViewController.swift */,
 				1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */,
+				1E9625BC2129F5AE00A8BDC6 /* RankViewCell.swift */,
 				1E5A227E212448020052EAC8 /* RankViewController.swift */,
 				1E5A22842124483A0052EAC8 /* BikeViewController.swift */,
 			);
@@ -297,6 +300,7 @@
 			files = (
 				1E5A227F212448020052EAC8 /* RankViewController.swift in Sources */,
 				58A696DD20EE8C5100AD776F /* ViewController.swift in Sources */,
+				1E9625BD2129F5AE00A8BDC6 /* RankViewCell.swift in Sources */,
 				58A696DB20EE8C5100AD776F /* AppDelegate.swift in Sources */,
 				1E5A22852124483A0052EAC8 /* BikeViewController.swift in Sources */,
 				1E13777621217CE4004B1A4A /* DesignableView.swift in Sources */,

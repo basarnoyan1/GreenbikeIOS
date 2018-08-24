@@ -47,6 +47,10 @@ class BikeViewController: UIViewController{
         performSegue(withIdentifier: "BiketoRank", sender: self)
     }
     
+    @IBAction func saveOnClick(_ sender: UIButton) {
+        savef()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         rssiReloadTimer?.invalidate()
@@ -75,6 +79,26 @@ class BikeViewController: UIViewController{
             speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
         }
         energy.text = getCal(gender: "Erkek", he: 180, we: 70, ag: 35, spe: lat_spd, time: counter/1000)
+    }
+    
+    func savef(){
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.y HH:mm:ss"
+        let date = formatter.string(from: Date())
+        
+        let savetxt =  date + "\t" + dist.text + "\t" + time.text + "\t" + speed.text + "\t" + energy.text + "\t" + tour.text + "\t" + tree.text + "\t" + cdio.text + "\n"
+        
+        counter = 0
+        
+        dist.text = "0 km"
+        time.text = "00:00:00"
+        speed.text = "0 km/h"
+        energy.text = "0 cal"
+        tour.text = "0 tur"
+        tree.text = "0 ağaç"
+        cdio.text = "0 g CO2"
+        
     }
     
     func getCal(gender:String, he:Int,we:Int,ag:Int,spe:Double,time:Int) -> String{
@@ -185,3 +209,4 @@ extension BikeViewController: CBPeripheralDelegate {
         }
     }
 }
+
