@@ -16,6 +16,13 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let preferences = UserDefaults.standard
+        if preferences.string(forKey: "name") == nil{
+            performSegue(withIdentifier: "toCreate", sender: self)
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? BikeViewController{

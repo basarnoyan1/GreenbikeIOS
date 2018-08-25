@@ -30,10 +30,26 @@ class BikeViewController: UIViewController{
     private var rssiReloadTimer: Timer?
     private var services: [CBService] = []
     
+    var onamae:String = ""
+    var gen:String = ""
+    var salt:String = ""
+    var age:Int = 0
+    var hei:Int = 0
+    var wei:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         peripheral.delegate = self
         rssiReloadTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(BikeViewController.refreshRSSI), userInfo: nil, repeats: true)
+        let preferences = UserDefaults.standard
+            onamae = preferences.string(forKey: "name")!
+            gen = preferences.string(forKey: "gender")!
+            salt = preferences.string(forKey: "salt")!
+            age = preferences.integer(forKey: "age")
+            hei = preferences.integer(forKey: "hei")
+            wei = preferences.integer(forKey: "wei")
+            name.text = "Merhaba, \(onamae )!"
+        
         hist.imageView?.contentMode = .scaleAspectFit
         rank.imageView?.contentMode = .scaleAspectFit
         save.imageView?.contentMode = .scaleAspectFit
@@ -48,7 +64,9 @@ class BikeViewController: UIViewController{
     }
     
     @IBAction func saveOnClick(_ sender: UIButton) {
-        savef()
+        if(dist.text != "0 km"){
+            savef()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -78,7 +96,10 @@ class BikeViewController: UIViewController{
             lat_spd = Double(3600) * Double(0.66 * Float.pi) / Double(counter - lat_tim)
             speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
         }
-        energy.text = getCal(gender: "Erkek", he: 180, we: 70, ag: 35, spe: lat_spd, time: counter/1000)
+        if counter - lat_tim > 5000{
+            savef()
+        }
+        energy.text = getCal(gender: gen, he: hei, we: wei, ag: age, spe: lat_spd, time: counter/1000)
     }
     
     func savef(){
@@ -86,10 +107,73 @@ class BikeViewController: UIViewController{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.y HH:mm:ss"
         let date = formatter.string(from: Date())
+        let savetxt = "\(date)\t\(dist.text ?? "0 km")\t\(time.text ?? "00:00:00")\t\(speed.text ?? "0 km/h")\t\(energy.text ?? "0 cal")\t\(tour.text ?? "0 tur")\t\(tree.text ?? "0 ağaç")\t\(cdio.text ?? "0 g CO2")\n"
         
-        let savetxt =  date + "\t" + dist.text + "\t" + time.text + "\t" + speed.text + "\t" + energy.text + "\t" + tour.text + "\t" + tree.text + "\t" + cdio.text + "\n"
         
+         let file = "file.txt"
+         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+
+             let fileURL = dir.appendingPathComponent(file)
+             do {
+                let old = try String(contentsOf: fileURL, encoding: .utf8)
+                let text = old + savetxt
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+             }
+             catch {/* error handling here */}
+            
+             //reading
+             do {
+                let text2 = try String(contentsOf: fileURL, encoding: .utf8)
+                print(text2)
+             }
+             catch {/* error handling here */}
+         }
+ 
+        let alertController = UIAlertController(title: "Ürettiğin elektrik enerjisiyle:", message: "\(appr_time(code: 0))su ısıtıcısı,\n\(appr_time(code: 1)) ampul,\n\(appr_time(code: 2)) klima çalıştırabilir ve\n\(appr_time(code: 3))basınçlı hava üretebilirdin.", preferredStyle: .alert)
+
+        let defaultAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+        
+        let d2 = dist.text?.dropLast(3) ?? ""
+        let s2 = speed.text?.dropLast(5) ?? ""
+        let e2 = energy.text?.dropLast(4) ?? ""
+        let t2 = tree.text?.dropLast(5) ?? ""
+        let g2 = cdio.text?.dropLast(6) ?? ""
+        
+        let url = URL(string: "http://greenbike.evall.io/api.php")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "username")
+        request.httpMethod = "POST"
+        
+        let postString = "username=\(onamae)&salt=\(salt)&dist=\(d2)&time=\(time.text)&speed=\(s2)&energy=\(e2)&cycle=\(cyc)&tree=\(t2)&gas=\(g2)&actionid=400"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+            }
+                let responseString = String(data: data, encoding: .utf8)
+                print("responseString = \(String(describing: responseString))")
+            
+        }
+        task.resume()
+        
+        
+        resetValues()
+    }
+    
+    func resetValues(){
         counter = 0
+        timer.invalidate()
+        lat_tim = 0
+        lat_spd = 0
+        cyc = 0
+        first = true
         
         dist.text = "0 km"
         time.text = "00:00:00"
@@ -98,6 +182,43 @@ class BikeViewController: UIViewController{
         tour.text = "0 tur"
         tree.text = "0 ağaç"
         cdio.text = "0 g CO2"
+    }
+    
+    func appr_time(code:Int) -> String {
+        var res:String = ""
+        switch code {
+        case 0:
+            let mizu = Decimal(counter) / Decimal(21600000)
+            let mizu_ = String(format:"%.2f",Float(mizu.description)!)
+            res = "\(mizu_) kez "
+            return res
+        case 1:
+            let denkyu = Decimal(counter) * Decimal(60) / Decimal(16)
+            
+            let date = NSDate(timeIntervalSince1970: Double(denkyu.description)! / 1000)
+            let formatter = DateFormatter()
+            formatter.timeZone = NSTimeZone(name: "UTC") as! TimeZone
+            formatter.dateFormat = "HH:mm:ss"
+            res = formatter.string(from: date as Date)
+            return res
+        case 2:
+            let kuchosochi = Decimal(counter) * Decimal(10) / Decimal(35)
+            
+            let date = NSDate(timeIntervalSince1970: Double(kuchosochi.description)! / 1000)
+            let formatter = DateFormatter()
+            formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+            formatter.dateFormat = "HH:mm:ss"
+            res = formatter.string(from: date as Date)
+            
+            return res
+        case 3:
+            let kuki = Decimal(counter)/Decimal(540000)
+            let kuki_ = String(format:"%.1f",Float(kuki.description)!)
+            res = "\(kuki_) s "
+            return res
+        default:
+            return res
+        }
         
     }
     
@@ -200,9 +321,7 @@ extension BikeViewController: CBPeripheralDelegate {
                     cdio.text = String(format:"%.2f",Float(enstr.description)!) + " g CO2"
                     lat_tim = counter
                 }
-                
-                
-                
+            
             } else {
                 print("not a valid UTF-8 sequence")
             }

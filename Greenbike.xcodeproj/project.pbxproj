@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E13777621217CE4004B1A4A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13777521217CE4004B1A4A /* DesignableView.swift */; };
 		1E14780E2125FF8E00ADDD71 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E14780D2125FF8E00ADDD71 /* save.png */; };
+		1E55963E2130988D00B8F86B /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55963D2130988D00B8F86B /* CreateViewController.swift */; };
 		1E56E64521273A4900DE7FC1 /* time_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E63E21273A4800DE7FC1 /* time_icon.png */; };
 		1E56E64621273A4900DE7FC1 /* speed_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E63F21273A4900DE7FC1 /* speed_icon.png */; };
 		1E56E64721273A4900DE7FC1 /* co2_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E56E64021273A4900DE7FC1 /* co2_icon.png */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		1E13777521217CE4004B1A4A /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		1E14780D2125FF8E00ADDD71 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/save.png"; sourceTree = "<group>"; };
+		1E55963D2130988D00B8F86B /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		1E56E63E21273A4800DE7FC1 /* time_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/time_icon.png"; sourceTree = "<group>"; };
 		1E56E63F21273A4900DE7FC1 /* speed_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speed_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/speed_icon.png"; sourceTree = "<group>"; };
 		1E56E64021273A4900DE7FC1 /* co2_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = co2_icon.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/co2_icon.png"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */,
 				1E9625BC2129F5AE00A8BDC6 /* RankViewCell.swift */,
 				1E5A227E212448020052EAC8 /* RankViewController.swift */,
+				1E55963D2130988D00B8F86B /* CreateViewController.swift */,
 				1E5A22842124483A0052EAC8 /* BikeViewController.swift */,
 			);
 			path = Greenbike;
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E55963E2130988D00B8F86B /* CreateViewController.swift in Sources */,
 				1E5A227F212448020052EAC8 /* RankViewController.swift in Sources */,
 				58A696DD20EE8C5100AD776F /* ViewController.swift in Sources */,
 				1E9625BD2129F5AE00A8BDC6 /* RankViewCell.swift in Sources */,
