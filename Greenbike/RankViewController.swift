@@ -2,6 +2,7 @@ import CoreBluetooth
 import UIKit
 
 class RankViewController: UIViewController {
+    @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var back: UIButton!
     
@@ -23,6 +24,7 @@ class RankViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progress.startAnimating()
         let preferences = UserDefaults.standard
         let salt = preferences.string(forKey: "salt")
         let url = URL(string: "http://greenbike.evall.io/api.php?actionid=200&salt=\(salt ?? "nil")")
@@ -35,9 +37,10 @@ class RankViewController: UIViewController {
                         self.json = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
                         if let usJson = self.json["userdata"] as? [[String: Any]] {
                             for jsn in usJson {
-                                print(jsn["username"] ?? "")
                                 if ((jsn["dist"] as? NSNull) == nil) {
                                     self.tableData.append(Rank(rank: jsn["rank"] as! String, name: jsn["username"] as! String, dist: jsn["dist"] as! String, tree: jsn["tree"] as! String, time: jsn["cycletime"] as! String, carbo: jsn["gas"] as! String, energy: jsn["energy"] as! String, speed: jsn["speed"] as! String, owner: jsn["owner"] as! String ))
+                                }
+                                DispatchQueue.main.async {
                                     self.tableView.reloadData()
                                 }
                             }
@@ -69,6 +72,7 @@ extension RankViewController: UITableViewDataSource {
         if tableData[indexPath.row].owner == "1" {
             cell.backgroundColor = UIColor(red: 1, green: 139/255, blue: 103/255, alpha: 80/255)
         }
+        progress.stopAnimating()
         return cell
     }
     
@@ -76,6 +80,7 @@ extension RankViewController: UITableViewDataSource {
         print(tableData.count)
         return tableData.count
     }
+
 }
 
 

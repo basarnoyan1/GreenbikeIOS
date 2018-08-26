@@ -28,7 +28,9 @@ class HistoryViewController: UIViewController{
 extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "histProto")! as UITableViewCell
-        cell.textLabel?.text = textArray[indexPath.row]
+        cell.textLabel?.text = "\(textArray[indexPath.row])"
+        cell.textLabel?.numberOfLines=0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         return cell
     }
     

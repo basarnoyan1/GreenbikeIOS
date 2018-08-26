@@ -78,10 +78,11 @@ extension ViewController: CBPeripheralDelegate {
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-        
         let peripheral = peripherals[indexPath.row]
-        if peripheral.name!.hasPrefix("GREENBIKE"){
-            cell.textLabel?.text = peripheral.name
+        if peripheral != nil{
+            if peripheral.name!.hasPrefix("GREENBIKE"){
+                cell.textLabel?.text = peripheral.name
+            }
         }
         return cell
     }
