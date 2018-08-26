@@ -10,7 +10,6 @@ import UIKit
 
 class RankViewCell: UITableViewCell {
 
-    @IBOutlet weak var backgr: UIView!
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var dist: UILabel!

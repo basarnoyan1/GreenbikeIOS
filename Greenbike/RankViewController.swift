@@ -42,7 +42,6 @@ class RankViewController: UIViewController {
                                 }
                             }
                         }
-                        print(self.json)
                     } catch {
                         print("Error")
                     }
@@ -54,17 +53,22 @@ class RankViewController: UIViewController {
     @IBAction func onBackPressed(_ sender: UIButton) {
             performSegue(withIdentifier: "RanktoEntry", sender: self)
     }
+}
 
+extension RankViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rankProto") as! RankViewCell
+        let cell:RankViewCell = self.tableView.dequeueReusableCell(withIdentifier: "rankProto")! as! RankViewCell
         cell.rank.text = tableData[indexPath.row].rank
         cell.name.text = tableData[indexPath.row].name
-        cell.dist.text = tableData[indexPath.row].dist
-        cell.tree.text = tableData[indexPath.row].tree
+        cell.dist.text = "\(tableData[indexPath.row].dist) km"
+        cell.tree.text = "\(tableData[indexPath.row].tree) ağaç"
         cell.time.text = tableData[indexPath.row].time
-        cell.carbo.text = tableData[indexPath.row].carbo
-        cell.energy.text = tableData[indexPath.row].energy
-        cell.speed.text = tableData[indexPath.row].speed
+        cell.carbo.text = "\(tableData[indexPath.row].carbo) g CO2"
+        cell.energy.text = "\(tableData[indexPath.row].energy) cal"
+        cell.speed.text = "\(tableData[indexPath.row].speed) km/h"
+        if tableData[indexPath.row].owner == "1" {
+            cell.backgroundColor = UIColor(red: 1, green: 139/255, blue: 103/255, alpha: 80/255)
+        }
         return cell
     }
     
@@ -73,8 +77,6 @@ class RankViewController: UIViewController {
         return tableData.count
     }
 }
-
-
 
 
 

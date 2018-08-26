@@ -197,13 +197,12 @@ class BikeViewController: UIViewController{
             
             let date = NSDate(timeIntervalSince1970: Double(denkyu.description)! / 1000)
             let formatter = DateFormatter()
-            formatter.timeZone = NSTimeZone(name: "UTC") as! TimeZone
+            formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
             formatter.dateFormat = "HH:mm:ss"
             res = formatter.string(from: date as Date)
             return res
         case 2:
             let kuchosochi = Decimal(counter) * Decimal(10) / Decimal(35)
-            
             let date = NSDate(timeIntervalSince1970: Double(kuchosochi.description)! / 1000)
             let formatter = DateFormatter()
             formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
