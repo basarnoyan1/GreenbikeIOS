@@ -9,6 +9,7 @@ class ViewController: UIViewController{
     private var selectedPeripheral: CBPeripheral?
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bleCheck: UILabel!
     @IBOutlet weak var rankBtn: UIButton!
     @IBOutlet weak var histBtn: UIButton!
     
@@ -43,15 +44,18 @@ extension ViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if (central.state == .poweredOn){
             self.centralManager?.scanForPeripherals(withServices: nil, options: nil)
+            bleCheck.alpha = 0
         }
         else {
-            // do something like alert the user that ble is not on
+            bleCheck.alpha = 1
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        peripherals.append(peripheral)
-        tableView.reloadData()
+        if peripheral.name != nil {
+                peripherals.append(peripheral)
+                tableView.reloadData()
+        }
     }
 }
 
@@ -70,6 +74,7 @@ extension ViewController: CBPeripheralDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
             print("Peripheral connected")
+            self.dismiss(animated: true, completion: nil)
             performSegue(withIdentifier: "startCycle", sender: self)
             peripheral.discoverServices(nil)
     }
@@ -79,20 +84,32 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         let peripheral = peripherals[indexPath.row]
-        if peripheral != nil{
+        print(peripheral.name)
+        if peripheral.name != nil{
             if peripheral.name!.hasPrefix("GREENBIKE"){
-                cell.textLabel?.text = peripheral.name
+                        cell.textLabel?.text = peripheral.name
             }
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return peripherals.count
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedPeripheral = peripherals[indexPath.row]
-        centralManager?.connect(peripherals[indexPath.row], options: nil)
-    }
 }
+
+extension ViewController:UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            selectedPeripheral = peripherals[indexPath.row]
+            let n = selectedPeripheral?.name ?? "null"
+            centralManager?.connect(selectedPeripheral!, options: nil)
+        let alertController = UIAlertController(title: n, message: "Bağlanıyor...", preferredStyle: .alert)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+}
+
+
+
+

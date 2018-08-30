@@ -6,6 +6,7 @@ class BikeViewController: UIViewController{
     var peripheral: CBPeripheral!
     var centralManager: CBCentralManager!
     
+    var saving:Bool = false
     var timer = Timer()
     var lat_tim:Int = 0
     var lat_spd:Double = 0
@@ -30,6 +31,7 @@ class BikeViewController: UIViewController{
     private var rssiReloadTimer: Timer?
     private var services: [CBService] = []
     
+    var hst:String = ""
     var onamae:String = ""
     var gen:String = ""
     var salt:String = ""
@@ -42,13 +44,14 @@ class BikeViewController: UIViewController{
         peripheral.delegate = self
         rssiReloadTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(BikeViewController.refreshRSSI), userInfo: nil, repeats: true)
         let preferences = UserDefaults.standard
-            onamae = preferences.string(forKey: "name")!
-            gen = preferences.string(forKey: "gender")!
-            salt = preferences.string(forKey: "salt")!
-            age = preferences.integer(forKey: "age")
-            hei = preferences.integer(forKey: "hei")
-            wei = preferences.integer(forKey: "wei")
-            name.text = "Merhaba, \(onamae )!"
+        hst = preferences.string(forKey: "history")!
+        onamae = preferences.string(forKey: "name")!
+        gen = preferences.string(forKey: "gender")!
+        salt = preferences.string(forKey: "salt")!
+        age = preferences.integer(forKey: "age")
+        hei = preferences.integer(forKey: "hei")
+        wei = preferences.integer(forKey: "wei")
+        name.text = "Merhaba, \(onamae )!"
         
         hist.imageView?.contentMode = .scaleAspectFit
         rank.imageView?.contentMode = .scaleAspectFit
@@ -96,42 +99,57 @@ class BikeViewController: UIViewController{
             lat_spd = Double(3600) * Double(0.66 * Float.pi) / Double(counter - lat_tim)
             speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
         }
-        if counter - lat_tim > 5000{
+        energy.text = getCal(gender: gen, he: hei, we: wei, ag: age, spe: lat_spd, time: counter/1000)
+
+        if peripheral.state == .disconnected{
             savef()
         }
-        energy.text = getCal(gender: gen, he: hei, we: wei, ag: age, spe: lat_spd, time: counter/1000)
     }
     
     func savef(){
         
+        saving = true
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.y HH:mm:ss"
         let date = formatter.string(from: Date())
-        let savetxt = "\(date)\t\(dist.text ?? "0 km")\t\(time.text ?? "00:00:00")\t\(speed.text ?? "0 km/h")\t\(energy.text ?? "0 cal")\t\(tour.text ?? "0 tur")\t\(tree.text ?? "0 ağaç")\t\(cdio.text ?? "0 g CO2")\n"
+        var savetxt = "\(date)\t\(dist.text ?? "0 km")\t\(time.text ?? "00:00:00")\t\(speed.text ?? "0 km/h")\t\(energy.text ?? "0 cal")\t\(tour.text ?? "0 tur")\t\(tree.text ?? "0 ağaç")\t\(cdio.text ?? "0 g CO2")\n"
+        let preferences = UserDefaults.standard
+        preferences.set(hst + savetxt,forKey: "history")
         
-        
-         let file = "file.txt"
+        /*let file = "file.txt"
          if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-
-             let fileURL = dir.appendingPathComponent(file)
-             do {
-                let old = try String(contentsOf: fileURL, encoding: .utf8)
-                let text = old + savetxt
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
-             }
-             catch {/* error handling here */}
-            
-             //reading
-             do {
-                let text2 = try String(contentsOf: fileURL, encoding: .utf8)
-                print(text2)
-             }
-             catch {/* error handling here */}
+         
+         let fileURL = dir.appendingPathComponent(file)
+         do {
+         if !fr {
+         //let old = try String(contentsOf: fileURL, encoding: .utf8)
+         //savetxt = old + savetxt
          }
- 
+         else {
+         let preferences = UserDefaults.standard
+         fr = false
+         preferences.set(false, forKey: "first_save")
+         }
+         try savetxt.write(to: fileURL, atomically: false, encoding: .utf8)
+         }
+         catch {/* error handling here */}
+         
+         //reading
+         do {
+         let text2 = try String(contentsOf: fileURL, encoding: .utf8)
+         print(text2)
+         }
+         catch {/* error handling here */}
+         }*/
+        
+        
+        
         let alertController = UIAlertController(title: "Ürettiğin elektrik enerjisiyle:", message: "\(appr_time(code: 0))su ısıtıcısı,\n\(appr_time(code: 1)) ampul,\n\(appr_time(code: 2)) klima çalıştırabilir ve\n\(appr_time(code: 3))basınçlı hava üretebilirdin.", preferredStyle: .alert)
-
-        let defaultAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        
+        let defaultAction = UIAlertAction(title: "Tamam", style: .default) {
+            (action:UIAlertAction!) in
+            self.saving = false
+        }
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
         
@@ -157,8 +175,8 @@ class BikeViewController: UIViewController{
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(String(describing: response))")
             }
-                let responseString = String(data: data, encoding: .utf8)
-                print("responseString = \(String(describing: responseString))")
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
             
         }
         task.resume()
@@ -224,9 +242,9 @@ class BikeViewController: UIViewController{
     func getCal(gender:String, he:Int,we:Int,ag:Int,spe:Double,time:Int) -> String{
         var bmr = Double(0.00)
         var mets = Double(0.00)
-            let n_we = Double(10*we)
-            let n_he = 6.25 * Double(he)
-            let n_ag = Double(5 * ag)
+        let n_we = Double(10*we)
+        let n_he = 6.25 * Double(he)
+        let n_ag = Double(5 * ag)
         if (gender == "Erkek") {
             bmr = n_we + n_he - n_ag + Double(5)
         } else {
@@ -303,28 +321,31 @@ extension BikeViewController: CBPeripheralDelegate {
                 
                 print(string)
                 if string.hasPrefix("#b4z8"){
-                    if first{
-                        timer = Timer.scheduledTimer(timeInterval: 0.001, target:self, selector: #selector(BikeViewController.tick), userInfo: nil, repeats: true)
-                        first = false
-                    }
-                    cyc += 1
-                    tour.text = String(cyc) + " tur"
-                    dist.text = String(format: "%.3f", (Float(cyc) * 0.66 * Float.pi / 1000)) + " km"
-                    if counter - lat_tim != 0 {
-                        lat_spd = Double(3600) * Double(0.66 * Float.pi) / Double(counter - lat_tim)
-                        speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
-                    }
+                    if saving == false{
+                        if first{
+                            timer = Timer.scheduledTimer(timeInterval: 0.001, target:self, selector: #selector(BikeViewController.tick), userInfo: nil, repeats: true)
+                            first = false
+                        }
+                        cyc += 1
+                        tour.text = String(cyc) + " tur"
+                        dist.text = String(format: "%.3f", (Float(cyc) * 0.66 * Float.pi / 1000)) + " km"
+                        if counter - lat_tim != 0 {
+                            lat_spd = Double(3600) * Double(0.66 * Float.pi) / Double(counter - lat_tim)
+                            speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
+                        }
                         let trstr = Decimal(counter) * Decimal(6.25) / Decimal(100000000)
-                    tree.text = String(format:"%.2f",Float(trstr.description)!) +  " ağaç"
+                        tree.text = String(format:"%.2f",Float(trstr.description)!) +  " ağaç"
                         let enstr = Decimal(counter) * Decimal(0.125) / Decimal(1000)
-                    cdio.text = String(format:"%.2f",Float(enstr.description)!) + " g CO2"
-                    lat_tim = counter
+                        cdio.text = String(format:"%.2f",Float(enstr.description)!) + " g CO2"
+                        lat_tim = counter
+                    }
                 }
-            
             } else {
                 print("not a valid UTF-8 sequence")
             }
         }
     }
 }
+
+
 

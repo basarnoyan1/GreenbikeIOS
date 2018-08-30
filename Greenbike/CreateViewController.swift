@@ -21,6 +21,7 @@ class CreateViewController: UIViewController {
             var g = "Erkek"
             let preferences = UserDefaults.standard
             let a = name.text
+            preferences.set("", forKey: "history")
             preferences.set(a, forKey: "name")
             preferences.set(Int(age.text!), forKey: "age")
             preferences.set(Int(hei.text!), forKey: "hei")
