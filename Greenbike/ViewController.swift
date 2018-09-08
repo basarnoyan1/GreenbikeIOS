@@ -53,8 +53,10 @@ extension ViewController: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if peripheral.name != nil {
+           if peripheral.name!.hasPrefix("GREENBIKE"){
                 peripherals.append(peripheral)
                 tableView.reloadData()
+            }
         }
     }
 }

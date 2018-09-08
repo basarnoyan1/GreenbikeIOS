@@ -11,21 +11,10 @@ class HistoryViewController: UIViewController{
         let preferences = UserDefaults.standard
         let hst = preferences.string(forKey: "history")
         textArray = hst!.components(separatedBy: "\n")
+        textArray.removeLast()
         textArray.reverse()
         tableView.reloadData()
         print(hst)
-        
-        /*let file = "file.txt"
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(file)
-            do {
-                let text = try String(contentsOf: fileURL, encoding: .utf8)
-                textArray = text.components(separatedBy: "\n")
-                textArray.reverse()
-                tableView.reloadData()
-                print(text)
-            } catch {}
-        }*/
         
     }
     

@@ -5,7 +5,8 @@ class BikeViewController: UIViewController{
     
     var peripheral: CBPeripheral!
     var centralManager: CBCentralManager!
-    
+
+    var disc = false
     var saving:Bool = false
     var timer = Timer()
     var lat_tim:Int = 0
@@ -14,9 +15,13 @@ class BikeViewController: UIViewController{
     var first = true
     var cyc = 0
     
+    var h = false
+    var r = false
+    
     @IBOutlet weak var hist: UIButton!
     @IBOutlet weak var rank: UIButton!
     @IBOutlet weak var save: UIButton!
+    @IBOutlet weak var backgr: UIView!
     
     @IBOutlet weak var name: UILabel!
     
@@ -53,17 +58,30 @@ class BikeViewController: UIViewController{
         wei = preferences.integer(forKey: "wei")
         name.text = "Merhaba, \(onamae )!"
         
+        let img = UIImage(named: "blue")
+        backgr.backgroundColor = UIColor (patternImage: img!)
+        
         hist.imageView?.contentMode = .scaleAspectFit
         rank.imageView?.contentMode = .scaleAspectFit
         save.imageView?.contentMode = .scaleAspectFit
     }
     
     @IBAction func histShow(_ sender: UIButton) {
+        if counter != 0{
+            savef()
+        }
+        h = true
         performSegue(withIdentifier: "BiketoHist", sender: self)
+        centralManager.cancelPeripheralConnection(peripheral)
     }
     
     @IBAction func rankShow(_ sender: UIButton) {
+        if counter != 0{
+            savef()
+        }
+        r = true
         performSegue(withIdentifier: "BiketoRank", sender: self)
+        centralManager.cancelPeripheralConnection(peripheral)
     }
     
     @IBAction func saveOnClick(_ sender: UIButton) {
@@ -85,6 +103,12 @@ class BikeViewController: UIViewController{
     
     @objc private func refreshRSSI(){
         peripheral.readRSSI()
+        if peripheral.state == .disconnected{
+            if disc==false && counter==0 && saving==false && h == false && r == false {
+                disc = true
+                performSegue(withIdentifier: "list", sender: self)
+            }
+        }
     }
     
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
@@ -115,34 +139,6 @@ class BikeViewController: UIViewController{
         var savetxt = "\(date)\t\(dist.text ?? "0 km")\t\(time.text ?? "00:00:00")\t\(speed.text ?? "0 km/h")\t\(energy.text ?? "0 cal")\t\(tour.text ?? "0 tur")\t\(tree.text ?? "0 ağaç")\t\(cdio.text ?? "0 g CO2")\n"
         let preferences = UserDefaults.standard
         preferences.set(hst + savetxt,forKey: "history")
-        
-        /*let file = "file.txt"
-         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-         
-         let fileURL = dir.appendingPathComponent(file)
-         do {
-         if !fr {
-         //let old = try String(contentsOf: fileURL, encoding: .utf8)
-         //savetxt = old + savetxt
-         }
-         else {
-         let preferences = UserDefaults.standard
-         fr = false
-         preferences.set(false, forKey: "first_save")
-         }
-         try savetxt.write(to: fileURL, atomically: false, encoding: .utf8)
-         }
-         catch {/* error handling here */}
-         
-         //reading
-         do {
-         let text2 = try String(contentsOf: fileURL, encoding: .utf8)
-         print(text2)
-         }
-         catch {/* error handling here */}
-         }*/
-        
-        
         
         let alertController = UIAlertController(title: "Ürettiğin elektrik enerjisiyle:", message: "\(appr_time(code: 0))su ısıtıcısı,\n\(appr_time(code: 1)) ampul,\n\(appr_time(code: 2)) klima çalıştırabilir ve\n\(appr_time(code: 3))basınçlı hava üretebilirdin.", preferredStyle: .alert)
         
