@@ -25,7 +25,8 @@
 		1E92E6C6212464F0006FE2EA /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92E6C4212464F0006FE2EA /* history.png */; };
 		1E92E6CD212471C3006FE2EA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5A2276212438D80052EAC8 /* CoreBluetooth.framework */; };
 		1E9625BD2129F5AE00A8BDC6 /* RankViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9625BC2129F5AE00A8BDC6 /* RankViewCell.swift */; };
-		1EFF7CB32143A96400FCDDD7 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EFF7CB22143A96400FCDDD7 /* blue.png */; };
+		1EFF7CC42143F46C00FCDDD7 /* bback.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EFF7CC32143F46B00FCDDD7 /* bback.png */; };
+		1EFF7CD021482B7400FCDDD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EFF7CD221482B7400FCDDD7 /* Localizable.strings */; };
 		58A696DB20EE8C5100AD776F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A696DA20EE8C5100AD776F /* AppDelegate.swift */; };
 		58A696DD20EE8C5100AD776F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A696DC20EE8C5100AD776F /* ViewController.swift */; };
 		58A696E020EE8C5100AD776F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A696DE20EE8C5100AD776F /* Main.storyboard */; };
@@ -65,10 +66,14 @@
 		1E92E6C4212464F0006FE2EA /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = history.png; path = "../../Greenbike-master/app/src/main/res/mipmap-xxxhdpi/history.png"; sourceTree = "<group>"; };
 		1E9625BC2129F5AE00A8BDC6 /* RankViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewCell.swift; sourceTree = "<group>"; };
 		1EFF7CAE2143247E00FCDDD7 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		1EFF7CAF2143247E00FCDDD7 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
 		1EFF7CB0214324A900FCDDD7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		1EFF7CB1214324A900FCDDD7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		1EFF7CB22143A96400FCDDD7 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue.png; path = ../../blue.png; sourceTree = "<group>"; };
+		1EFF7CC32143F46B00FCDDD7 /* bback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bback.png; sourceTree = "<group>"; };
+		1EFF7CD121482B7400FCDDD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1EFF7CD321482B7500FCDDD7 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1EFF7CD421482B7600FCDDD7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1EFF7CD821482E9100FCDDD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1EFF7CD921482E9700FCDDD7 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		1EFF7CDA21482EA000FCDDD7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		58A696D520EE8C5100AD776F /* Greenbike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenbike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A696D920EE8C5100AD776F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58A696DA20EE8C5100AD776F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +117,7 @@
 		1E5A227B2124478B0052EAC8 /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				1EFF7CB22143A96400FCDDD7 /* blue.png */,
+				1EFF7CC32143F46B00FCDDD7 /* bback.png */,
 				1E5947A62129DD5F006420EF /* back.png */,
 				1E56E64021273A4900DE7FC1 /* co2_icon.png */,
 				1E56E64121273A4900DE7FC1 /* energy_icon.png */,
@@ -158,6 +163,7 @@
 				58A696D820EE8C5100AD776F /* Supporting Files */,
 				1E5A227B2124478B0052EAC8 /* Design */,
 				58A696DE20EE8C5100AD776F /* Main.storyboard */,
+				1EFF7CD221482B7400FCDDD7 /* Localizable.strings */,
 				58A696DC20EE8C5100AD776F /* ViewController.swift */,
 				1E5A227C212447DA0052EAC8 /* HistoryViewController.swift */,
 				1E9625BC2129F5AE00A8BDC6 /* RankViewCell.swift */,
@@ -259,6 +265,8 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				ja,
 			);
 			mainGroup = 58A696CC20EE8C5000AD776F;
 			productRefGroup = 58A696D620EE8C5100AD776F /* Products */;
@@ -276,10 +284,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EFF7CD021482B7400FCDDD7 /* Localizable.strings in Resources */,
 				1E92E6C6212464F0006FE2EA /* history.png in Resources */,
 				1E56E64921273A4900DE7FC1 /* forest_icon.png in Resources */,
 				1E56E64B21273A4900DE7FC1 /* loop_icon.png in Resources */,
-				1EFF7CB32143A96400FCDDD7 /* blue.png in Resources */,
 				1E56E64A21273A4900DE7FC1 /* map_icon.png in Resources */,
 				58A696E020EE8C5100AD776F /* Main.storyboard in Resources */,
 				58A696E520EE8C5100AD776F /* LaunchScreen.xib in Resources */,
@@ -292,6 +300,7 @@
 				58A696E220EE8C5100AD776F /* Images.xcassets in Resources */,
 				1E56E64521273A4900DE7FC1 /* time_icon.png in Resources */,
 				1E56E64721273A4900DE7FC1 /* co2_icon.png in Resources */,
+				1EFF7CC42143F46C00FCDDD7 /* bback.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,12 +348,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1EFF7CD221482B7400FCDDD7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EFF7CD121482B7400FCDDD7 /* en */,
+				1EFF7CD321482B7500FCDDD7 /* tr */,
+				1EFF7CD421482B7600FCDDD7 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		58A696DE20EE8C5100AD776F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				58A696DF20EE8C5100AD776F /* Base */,
-				1EFF7CAF2143247E00FCDDD7 /* tr */,
-				1EFF7CB1214324A900FCDDD7 /* ja */,
+				1EFF7CD821482E9100FCDDD7 /* en */,
+				1EFF7CD921482E9700FCDDD7 /* tr */,
+				1EFF7CDA21482EA000FCDDD7 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

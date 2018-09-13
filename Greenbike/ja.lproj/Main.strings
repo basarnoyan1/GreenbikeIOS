@@ -1,14 +1,14 @@
 
-/* Class = "UILabel"; text = "Yakındaki Cihazlar"; ObjectID = "3ND-Fn-svR"; */
+/* Class = "UILabel"; text = "近くのデバイス"; ObjectID = "3ND-Fn-svR"; */
 "3ND-Fn-svR.text" = "近くのデバイス";
 
 /* Class = "UILabel"; text = "0 km/h"; ObjectID = "4tg-Ru-ehN"; */
 "4tg-Ru-ehN.text" = "0 km/h";
 
-/* Class = "UILabel"; text = "Yaş"; ObjectID = "6cn-PE-NXp"; */
+/* Class = "UILabel"; text = "年齢"; ObjectID = "6cn-PE-NXp"; */
 "6cn-PE-NXp.text" = "年齢";
 
-/* Class = "UILabel"; text = "0 cal"; ObjectID = "8SW-uF-T44"; */
+/* Class = "UILabel"; text = "0 カロリー"; ObjectID = "8SW-uF-T44"; */
 "8SW-uF-T44.text" = "0 カロリー";
 
 /* Class = "UILabel"; text = "55:66:77"; ObjectID = "B7e-Rl-cXl"; */
@@ -17,38 +17,38 @@
 /* Class = "UILabel"; text = "1.110 km"; ObjectID = "B95-HZ-F31"; */
 "B95-HZ-F31.text" = "1.110 km";
 
-/* Class = "UILabel"; text = "0 ağaç"; ObjectID = "DtN-Ps-XVa"; */
+/* Class = "UILabel"; text = "0 本の木"; ObjectID = "DtN-Ps-XVa"; */
 "DtN-Ps-XVa.text" = "0 本の木";
 
-/* Class = "UILabel"; text = "⚠️ Bluetooth bağlantınızı kontrol ediniz!"; ObjectID = "J3i-nd-SPs"; */
-"J3i-nd-SPs.text" = "⚠️ Bluetooth bağlantınızı kontrol ediniz!";
+/* Class = "UILabel"; text = "⚠️ Bluetooth接続を確認してください！!"; ObjectID = "J3i-nd-SPs"; */
+"J3i-nd-SPs.text" = "⚠️ Bluetooth接続を確認してください！!";
 
-/* Class = "UILabel"; text = "Cinsiyet"; ObjectID = "M2K-kj-vdN"; */
+/* Class = "UILabel"; text = "性別"; ObjectID = "M2K-kj-vdN"; */
 "M2K-kj-vdN.text" = "性別";
 
 /* Class = "UILabel"; text = "500"; ObjectID = "Mj1-MU-cnr"; */
 "Mj1-MU-cnr.text" = "500";
 
-/* Class = "UILabel"; text = "0 tur"; ObjectID = "OJD-kR-8aD"; */
+/* Class = "UILabel"; text = "0 ツアー"; ObjectID = "OJD-kR-8aD"; */
 "OJD-kR-8aD.text" = "0 ツアー";
 
 /* Class = "UILabel"; text = "99.99 g CO2"; ObjectID = "QOH-5s-xmb"; */
 "QOH-5s-xmb.text" = "99.99 g CO2";
 
-/* Class = "UILabel"; text = "Geçmiş"; ObjectID = "Ra2-W8-GCV"; */
-"Ra2-W8-GCV.text" = "Geçmiş";
+/* Class = "UILabel"; text = "最近"; ObjectID = "Ra2-W8-GCV"; */
+"Ra2-W8-GCV.text" = "最近";
 
-/* Class = "UILabel"; text = "Boy"; ObjectID = "Sff-cc-Zfm"; */
-"Sff-cc-Zfm.text" = "Boy";
+/* Class = "UILabel"; text = "身長"; ObjectID = "Sff-cc-Zfm"; */
+"Sff-cc-Zfm.text" = "身長";
 
 /* Class = "UILabel"; text = "********"; ObjectID = "TmN-Je-rt1"; */
 "TmN-Je-rt1.text" = "********";
 
-/* Class = "UILabel"; text = "Kütle"; ObjectID = "XsV-7v-eOI"; */
-"XsV-7v-eOI.text" = "Kütle";
+/* Class = "UILabel"; text = "体重"; ObjectID = "XsV-7v-eOI"; */
+"XsV-7v-eOI.text" = "体重";
 
-/* Class = "UILabel"; text = "Sıralama"; ObjectID = "YE7-uJ-eZd"; */
-"YE7-uJ-eZd.text" = "Sıralama";
+/* Class = "UILabel"; text = "ランキングリスト"; ObjectID = "YE7-uJ-eZd"; */
+"YE7-uJ-eZd.text" = "ランキングリスト";
 
 /* Class = "UILabel"; text = "0 g CO2"; ObjectID = "YMI-da-BeE"; */
 "YMI-da-BeE.text" = "0 g CO2";
@@ -59,29 +59,29 @@
 /* Class = "UILabel"; text = "00:00:00"; ObjectID = "ZZs-A7-RiN"; */
 "ZZs-A7-RiN.text" = "00:00:00";
 
-/* Class = "UIButton"; normalTitle = "İleri"; ObjectID = "bFz-tc-DDE"; */
-"bFz-tc-DDE.normalTitle" = "持続する";
+/* Class = "UIButton"; normalTitle = "次"; ObjectID = "bFz-tc-DDE"; */
+"bFz-tc-DDE.normalTitle" = "次";
 
-/* Class = "UILabel"; text = "99.90 ağaç"; ObjectID = "cAf-MZ-iAN"; */
+/* Class = "UILabel"; text = "99.90 本の木"; ObjectID = "cAf-MZ-iAN"; */
 "cAf-MZ-iAN.text" = "99.90 本の木";
 
-/* Class = "UILabel"; text = "İsim"; ObjectID = "crX-aQ-vqj"; */
+/* Class = "UILabel"; text = "名前"; ObjectID = "crX-aQ-vqj"; */
 "crX-aQ-vqj.text" = "名前";
 
-/* Class = "UISegmentedControl"; dDU-a9-qyQ.segmentTitles[0] = "Erkek"; ObjectID = "dDU-a9-qyQ"; */
-"dDU-a9-qyQ.segmentTitles[0]" = "Erkek";
+/* Class = "UISegmentedControl"; dDU-a9-qyQ.segmentTitles[0] = "男性"; ObjectID = "dDU-a9-qyQ"; */
+"dDU-a9-qyQ.segmentTitles[0]" = "男性";
 
-/* Class = "UISegmentedControl"; dDU-a9-qyQ.segmentTitles[1] = "Kadın"; ObjectID = "dDU-a9-qyQ"; */
-"dDU-a9-qyQ.segmentTitles[1]" = "Kadın";
+/* Class = "UISegmentedControl"; dDU-a9-qyQ.segmentTitles[1] = "女性"; ObjectID = "dDU-a9-qyQ"; */
+"dDU-a9-qyQ.segmentTitles[1]" = "女性";
 
 /* Class = "UILabel"; text = "69.60 km/h"; ObjectID = "fkh-7A-95y"; */
 "fkh-7A-95y.text" = "69.60 km/h";
 
-/* Class = "UILabel"; text = "Merhaba, Başar!"; ObjectID = "gKN-yw-81g"; */
+/* Class = "UILabel"; text = "こんにちは, Başar!"; ObjectID = "gKN-yw-81g"; */
 "gKN-yw-81g.text" = "こんにちは, Başar!";
 
 /* Class = "UILabel"; text = "99.9 cal"; ObjectID = "iOq-Si-HKZ"; */
 "iOq-Si-HKZ.text" = "99.9 cal";
 
-/* Class = "UILabel"; text = "⚠️ Bilgileri kontrol ediniz."; ObjectID = "uDz-x8-Oj4"; */
-"uDz-x8-Oj4.text" = "⚠️ あなたの情報をチェックしてください!";
+/* Class = "UILabel"; text = "⚠️ あなたの情報をチェックしてください."; ObjectID = "uDz-x8-Oj4"; */
+"uDz-x8-Oj4.text" = "⚠️ あなたの情報をチェックしてください.";

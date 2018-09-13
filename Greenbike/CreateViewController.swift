@@ -1,5 +1,7 @@
 import UIKit
 
+var control = false
+
 class CreateViewController: UIViewController {
 
     @IBOutlet weak var name: UITextField!
@@ -9,7 +11,6 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var ge: UISegmentedControl!
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var warn: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,19 +59,29 @@ class CreateViewController: UIViewController {
                         print(usJson["salt"] ?? "nil")
                         let salt = usJson["salt"]
                         preferences.set(salt, forKey: "salt")
+                        control = true
                     }
                     
                 } catch let error as NSError {
                     print("Failed to load: \(error.localizedDescription)")
+                    control = false
                 }
                 
             }
             task.resume()
 
-        performSegue(withIdentifier: "created", sender: self)
+            if control{
+                performSegue(withIdentifier: "created", sender: self)
+            }
+            else{
+                warn.text = NSLocalizedString("check_network", comment: "")
+                warn.alpha = 1
+            }
     }
         else{
+            warn.text = NSLocalizedString("check_info", comment: "")
             warn.alpha = 1
         }
     }
 }
+

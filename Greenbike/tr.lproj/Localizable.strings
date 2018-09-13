@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Greenbike
+
+  Created by zafer on 11.09.2018.
+  Copyright © 2018 evall.io. All rights reserved.
+*/
+
+"check_info" = "⚠️ Bilgileri kontrol ediniz.";
+"check_network" = "⚠️ İnternet bağlantınızı kontrol ediniz.";

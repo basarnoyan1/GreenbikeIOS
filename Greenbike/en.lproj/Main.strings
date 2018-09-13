@@ -1,0 +1,87 @@
+
+/* Class = "UILabel"; text = "Yakındaki Cihazlar"; ObjectID = "3ND-Fn-svR"; */
+"3ND-Fn-svR.text" = "Near Devices";
+
+/* Class = "UILabel"; text = "0 km/h"; ObjectID = "4tg-Ru-ehN"; */
+"4tg-Ru-ehN.text" = "0 km/h";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "6cn-PE-NXp"; */
+"6cn-PE-NXp.text" = "Age";
+
+/* Class = "UILabel"; text = "0 cal"; ObjectID = "8SW-uF-T44"; */
+"8SW-uF-T44.text" = "0 cal";
+
+/* Class = "UILabel"; text = "55:66:77"; ObjectID = "B7e-Rl-cXl"; */
+"B7e-Rl-cXl.text" = "55:66:77";
+
+/* Class = "UILabel"; text = "1.110 km"; ObjectID = "B95-HZ-F31"; */
+"B95-HZ-F31.text" = "1.110 km";
+
+/* Class = "UILabel"; text = "0 ağaç"; ObjectID = "DtN-Ps-XVa"; */
+"DtN-Ps-XVa.text" = "0 tree";
+
+/* Class = "UILabel"; text = "⚠️ Bluetooth bağlantınızı kontrol ediniz!"; ObjectID = "J3i-nd-SPs"; */
+"J3i-nd-SPs.text" = "⚠️ Check your Bluetooth connection!";
+
+/* Class = "UILabel"; text = "Cinsiyet"; ObjectID = "M2K-kj-vdN"; */
+"M2K-kj-vdN.text" = "Gender";
+
+/* Class = "UILabel"; text = "500"; ObjectID = "Mj1-MU-cnr"; */
+"Mj1-MU-cnr.text" = "500";
+
+/* Class = "UILabel"; text = "0 tur"; ObjectID = "OJD-kR-8aD"; */
+"OJD-kR-8aD.text" = "0 tour";
+
+/* Class = "UILabel"; text = "99.99 g CO2"; ObjectID = "QOH-5s-xmb"; */
+"QOH-5s-xmb.text" = "99.99 g CO2";
+
+/* Class = "UILabel"; text = "Geçmiş"; ObjectID = "Ra2-W8-GCV"; */
+"Ra2-W8-GCV.text" = "History";
+
+/* Class = "UILabel"; text = "Boy"; ObjectID = "Sff-cc-Zfm"; */
+"Sff-cc-Zfm.text" = "Height";
+
+/* Class = "UILabel"; text = "********"; ObjectID = "TmN-Je-rt1"; */
+"TmN-Je-rt1.text" = "********";
+
+/* Class = "UILabel"; text = "Kütle"; ObjectID = "XsV-7v-eOI"; */
+"XsV-7v-eOI.text" = "Weight";
+
+/* Class = "UILabel"; text = "Sıralama"; ObjectID = "YE7-uJ-eZd"; */
+"YE7-uJ-eZd.text" = "Ranking";
+
+/* Class = "UILabel"; text = "0 g CO2"; ObjectID = "YMI-da-BeE"; */
+"YMI-da-BeE.text" = "0 g CO2";
+
+/* Class = "UILabel"; text = "0 km"; ObjectID = "YzL-5R-wft"; */
+"YzL-5R-wft.text" = "0 km";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "ZZs-A7-RiN"; */
+"ZZs-A7-RiN.text" = "00:00:00";
+
+/* Class = "UIButton"; normalTitle = "İleri"; ObjectID = "bFz-tc-DDE"; */
+"bFz-tc-DDE.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "99.90 ağaç"; ObjectID = "cAf-MZ-iAN"; */
+"cAf-MZ-iAN.text" = "99.90 tree";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "crX-aQ-vqj"; */
+"crX-aQ-vqj.text" = "Name";
+
+/* Class = "UISegmentedControl"; dDU-a9-qyQ.segmentTitles[0] = "Erkek"; ObjectID = "dDU-a9-qyQ"; */
+"dDU-a9-qyQ.segmentTitles[0]" = "Male";
+
+/* Class = "UISegmentedControl"; dDU-a9-qyQ.segmentTitles[1] = "Kadın"; ObjectID = "dDU-a9-qyQ"; */
+"dDU-a9-qyQ.segmentTitles[1]" = "Female";
+
+/* Class = "UILabel"; text = "69.60 km/h"; ObjectID = "fkh-7A-95y"; */
+"fkh-7A-95y.text" = "69.60 km/h";
+
+/* Class = "UILabel"; text = "Merhaba, Başar!"; ObjectID = "gKN-yw-81g"; */
+"gKN-yw-81g.text" = "Hello, Başar!";
+
+/* Class = "UILabel"; text = "99.9 cal"; ObjectID = "iOq-Si-HKZ"; */
+"iOq-Si-HKZ.text" = "99.9 cal";
+
+/* Class = "UILabel"; text = "⚠️ Bilgileri kontrol ediniz."; ObjectID = "uDz-x8-Oj4"; */
+"uDz-x8-Oj4.text" = "⚠️ Check your connection.";

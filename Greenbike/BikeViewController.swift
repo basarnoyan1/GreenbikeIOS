@@ -58,7 +58,7 @@ class BikeViewController: UIViewController{
         wei = preferences.integer(forKey: "wei")
         name.text = "Merhaba, \(onamae )!"
         
-        let img = UIImage(named: "blue")
+        let img = UIImage(named: "bback")
         backgr.backgroundColor = UIColor (patternImage: img!)
         
         hist.imageView?.contentMode = .scaleAspectFit
@@ -119,7 +119,7 @@ class BikeViewController: UIViewController{
         counter += 1
         let (h,m,s) = secondsToHoursMinutesSeconds(seconds: counter/1000)
         time.text = String(format: "%02d",h) + ":" + String(format: "%02d",m) + ":" + String(format: "%02d",s)
-        if counter - lat_tim > 1500 {
+        if counter - lat_tim > 2500 {
             lat_spd = Double(3600) * Double(0.66 * Float.pi) / Double(counter - lat_tim)
             speed.text = String(format: "%.1f", Float(lat_spd)) + " km/h"
         }
@@ -160,7 +160,7 @@ class BikeViewController: UIViewController{
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "username")
         request.httpMethod = "POST"
         
-        let postString = "username=\(onamae)&salt=\(salt)&dist=\(d2)&time=\(time.text)&speed=\(s2)&energy=\(e2)&cycle=\(cyc)&tree=\(t2)&gas=\(g2)&actionid=400"
+        let postString = "username=\(onamae)&salt=\(salt)&dist=\(d2)&time=\(time.text)&speed=\(s2)&energy=\(e2)&cycle=\(cyc)&tree=\(t2)&gas=\(g2)&actionid=400&bike=\(peripheral.name! ?? "")"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
